@@ -1,5 +1,7 @@
+import Figure from '$lib/storyblok/Figure.svelte'
 import Page from '$lib/storyblok/Page.svelte'
 import RichText from '$lib/storyblok/RichText.svelte'
+import SplitContent from '$lib/storyblok/SplitContent.svelte'
 import { apiPlugin, storyblokInit, useStoryblokApi } from '@storyblok/svelte'
 
 /** @type {import('./$types').LayoutLoad} */
@@ -12,8 +14,10 @@ export async function load() {
       region: 'us',
     },
     components: {
+      figure: Figure,
       page: Page,
       richText: RichText,
+      splitContent: SplitContent,
     },
   })
 

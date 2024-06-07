@@ -1,6 +1,6 @@
 <header>
   <div>
-    <h1>Storyblok SvelteKit</h1>
+    <h1>mvc.ink</h1>
 
     <nav>
       <ul>
