@@ -5,7 +5,7 @@ export async function load({ params, parent }) {
   const { slug } = params
 
   const dataStory = await storyblokApi.get(`cdn/stories/${slug || 'home'}`, {
-    version: 'draft'
+    version: 'draft',
   })
 
   return {

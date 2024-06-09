@@ -1,7 +1,10 @@
-import Figure from '$lib/storyblok/Figure.svelte'
+import Actions from '$lib/storyblok/Actions.svelte'
+import Banner from '$lib/storyblok/Banner.svelte'
+import Button from '$lib/storyblok/Button.svelte'
 import Page from '$lib/storyblok/Page.svelte'
-import RichText from '$lib/storyblok/RichText.svelte'
-import SplitContent from '$lib/storyblok/SplitContent.svelte'
+import Section from '$lib/storyblok/Section.svelte'
+import Spotlight from '$lib/storyblok/Spotlight.svelte'
+import Text from '$lib/storyblok/Text.svelte'
 import { apiPlugin, storyblokInit, useStoryblokApi } from '@storyblok/svelte'
 
 /** @type {import('./$types').LayoutLoad} */
@@ -14,14 +17,17 @@ export async function load() {
       region: 'us',
     },
     components: {
-      figure: Figure,
+      actions: Actions,
+      banner: Banner,
+      button: Button,
       page: Page,
-      richText: RichText,
-      splitContent: SplitContent,
+      section: Section,
+      spotlight: Spotlight,
+      text: Text,
     },
   })
 
-  let storyblokApi = await useStoryblokApi()
+  const storyblokApi = await useStoryblokApi()
 
   return {
     storyblokApi: storyblokApi,

@@ -16,8 +16,6 @@
   <title>{data.story.name}</title>
 </svelte:head>
 
-<div>
-  {#if data.story}
-    <StoryblokComponent blok={data.story.content} />
-  {/if}
-</div>
+{#if data.story}
+  <StoryblokComponent blok={data.story.content} />
+{/if}

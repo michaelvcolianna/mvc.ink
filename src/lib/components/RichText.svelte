@@ -6,4 +6,4 @@
   $: resolvedRichText = renderRichText(content)
 </script>
 
-<div>{@html resolvedRichText}</div>
+{@html resolvedRichText}
