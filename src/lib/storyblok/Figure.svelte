@@ -1,11 +1,17 @@
-<script>
-  import { storyblokEditable } from "@storyblok/svelte";
-  import RichText from "$lib/components/RichText.svelte";
-
-  export let blok;
+<script context="module">
+  let idCounter = 0
 </script>
 
-<div use:storyblokEditable={blok}>
+<script>
+  import { storyblokEditable } from '@storyblok/svelte'
+  import RichText from '$lib/components/RichText.svelte'
+
+  export let blok
+
+  const anchorId = blok.anchorId || `figure-${++idCounter}`
+</script>
+
+<div use:storyblokEditable={blok} id={anchorId}>
   <figure>
     <figcaption>
       <img

@@ -9,15 +9,7 @@
         </li>
 
         <li>
-          <a href="/about">About</a>
-        </li>
-
-        <li>
-          <a href="/fcoe">Fractured Children of Earth</a>
-        </li>
-
-        <li>
-          <a href="/tkc">The Kinetic Conspiracy</a>
+          <a href="/stories">Stories</a>
         </li>
       </ul>
     </nav>
