@@ -7218,10 +7218,6 @@ input, select, textarea {
 		width: 64rem;
 	}
 
-	#declan.wrapper.style1 > .inner {
-		padding: 3.5rem 3.5rem 2rem 3.5rem;
-	}
-
 		.wrapper.style1 > .inner.medium {
 			width: 48rem;
 		}
