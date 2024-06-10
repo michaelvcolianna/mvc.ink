@@ -1,7 +1,7 @@
 <script>
-  import RichText from '$lib/components/RichText.svelte'
+  import Text from '$lib/components/Text.svelte'
 
   export let blok
 </script>
 
-<RichText content={blok.content} />
+<Text {...blok} />

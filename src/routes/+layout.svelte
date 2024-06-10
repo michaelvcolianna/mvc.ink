@@ -1,9 +1,8 @@
 <script>
-  import '../styles/main.css'
+  import Footer from '$lib/components/Footer.svelte'
+  import '../main.scss'
 </script>
 
-<svelte:head>
-  <title>mvc.ink - Author Michael V. Colianna's web site</title>
-</svelte:head>
-
 <slot />
+
+<Footer />

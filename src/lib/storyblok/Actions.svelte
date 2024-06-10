@@ -1,16 +1,7 @@
 <script>
-  import { StoryblokComponent } from '@storyblok/svelte'
+  import Actions from '$lib/components/Actions.svelte'
 
   export let blok
-
-  const classes = [
-    'actions',
-    blok.layout,
-  ].join(' ')
 </script>
 
-<ul class={classes}>
-  {#each blok.buttons as blok}
-    <StoryblokComponent {blok} />
-  {/each}
-</ul>
+<Actions {...blok} />

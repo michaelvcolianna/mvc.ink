@@ -1,19 +1,7 @@
 <script>
-  import { makeClasses } from '$lib/index'
+  import Button from '$lib/components/Button.svelte'
 
   export let blok
-
-  const { label } = blok
-  const { anchor } = blok.link
-
-  const classes = makeClasses([
-    'button',
-    blok.style,
-    blok.size,
-    blok.fit ? 'fit' : '',
-  ])
 </script>
 
-<li>
-  <a href={`#${anchor}`} class={classes}>{label}</a>
-</li>
+<Button {...blok} />

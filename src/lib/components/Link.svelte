@@ -1,4 +1,5 @@
 <script>
+  import Blog from '$lib/components/icons/Blog.svelte'
   import Bluesky from '$lib/components/icons/Bluesky.svelte'
   import Email from '$lib/components/icons/Email.svelte'
   import Facebook from '$lib/components/icons/Facebook.svelte'
@@ -9,18 +10,20 @@
   export let type
   export let href
 
-  const icons = {
+  const Icon = {
+    blog: Blog,
     bluesky: Bluesky,
     email: Email,
     facebook: Facebook,
     github: GitHub,
     linkedin: LinkedIn,
     twitter: Twitter,
-  }
-  const Icon = icons[type]
+  }[type]
 
-  const target = type === 'email' ? undefined : '_blank'
-  const rel = type === 'email' ? undefined : 'noopener noreferrer'
+  const isExternal = type !== 'blog' && type !== 'email'
+
+  const target = isExternal ? '_blank' : undefined
+  const rel = isExternal ? 'noopener noreferrer' : undefined
 </script>
 
 <li>

@@ -1,0 +1,41 @@
+:root {
+  --mode: 'df';
+  --motion: 'false';
+
+  @media screen and (max-width: 1680px) {
+    --mode: 'ws';
+  }
+
+  @media screen and (max-width: 1280px) {
+    --mode: 'xl';
+  }
+
+  @media screen and (max-width: 980px) {
+    --mode: 'lg';
+  }
+
+  @media screen and (max-width: 736px) {
+    --mode: 'md';
+  }
+
+  @media screen and (max-width: 480px) {
+    --mode: 'sm';
+  }
+
+  @media screen and (max-width: 360px) {
+    --mode: 'xs';
+  }
+
+  @media screen and (max-width: 736px) and (orientation: portrait) {
+    --mode: 'md+pt';
+  }
+
+  @media screen and (orientation: portrait) {
+    --mode: 'df+pt';
+  }
+
+  @media screen and (prefers-reduced-motion: no-preference) {
+    --motion: 'true';
+  }
+}
+
