@@ -4,11 +4,14 @@ import Page from '$lib/storyblok/Page.svelte'
 import Section from '$lib/storyblok/Section.svelte'
 import Text from '$lib/storyblok/Text.svelte'
 import { apiPlugin, storyblokInit, useStoryblokApi } from '@storyblok/svelte'
+import { dev } from '$app/environment'
 
 /** @type {import('./$types').LayoutLoad} */
 export async function load() {
+  const env = import.meta.env
+
   storyblokInit({
-    accessToken: 'GAUFyfNty9lX5I3nhtrQCQtt',
+    accessToken: dev ? env.VITE_PREVIEW_KEY : env.VITE_PUBLIC_KEY,
     use: [apiPlugin],
     apiOptions: {
       https: true,
