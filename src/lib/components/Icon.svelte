@@ -31,7 +31,7 @@
   }[type]
 </script>
 
-<svg xmlns="http://www.w3.org/2000/svg" aria-label={label} viewBox={icon.viewBox || '0 0 512 512'} class="h-4 w-auto">
+<svg xmlns="http://www.w3.org/2000/svg" aria-label={label} viewBox={icon.viewBox || '0 0 512 512'} class="h-4 w-auto lg:h-5">
   {@html '<!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->'}
   <path d={icon.path} />
 </svg>
