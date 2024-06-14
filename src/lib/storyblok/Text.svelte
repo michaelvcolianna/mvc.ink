@@ -1,7 +1,11 @@
 <script>
-  import Text from '$lib/components/Text.svelte'
+  import { renderRichText } from '@storyblok/svelte'
 
   export let blok
+
+  $: resolvedRichText = renderRichText(blok.content)
 </script>
 
-<Text {...blok} />
+<div class="content grid gap-6">
+  {@html resolvedRichText}
+</div>

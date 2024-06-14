@@ -1,0 +1,116 @@
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300;
+  src: url(@fontsource/source-sans-pro/files/source-sans-pro-latin-300-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(@fontsource/source-sans-pro/files/source-sans-pro-latin-400-normal.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 300;
+  src: url(@fontsource/source-sans-pro/files/source-sans-pro-latin-300-italic.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400;
+  src: url(@fontsource/source-sans-pro/files/source-sans-pro-latin-400-italic.woff2) format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply tracking-tighter;
+  }
+
+  h1 {
+    @apply text-4xl lg:text-5xl;
+  }
+
+  h2 {
+    @apply text-3xl lg:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl lg:text-3xl;
+  }
+
+  h4 {
+    @apply text-xl lg:text-2xl;
+  }
+
+  h5 {
+    @apply text-lg lg:text-xl;
+  }
+
+  h6 {
+    @apply text-base lg:text-lg;
+  }
+}
+
+@layer components {
+  p a {
+    @apply font-normal underline;
+  }
+
+  .content .major {
+    @apply text-base sm:text-lg md:text-xl lg:text-2xl;
+  }
+
+  .content .page-header {
+    @apply tracking-tighter text-2xl lg:text-3xl;
+  }
+
+  .content blockquote {
+    @apply border-l-3 px-4 grid gap-6;
+  }
+
+  .orient-left div:last-child {
+    @apply md:order-1;
+  }
+
+  .orient-right div:first-child {
+    @apply md:order-1;
+  }
+
+  .boxed > div:first-child {
+    @apply lg:my-[15%] 2xl:my-[20%];
+  }
+
+  .boxed.orient-left div:first-child {
+    @apply md:rounded-r-lg;
+  }
+
+  .boxed.orient-center div:first-child {
+    @apply md:mx-auto md:rounded-lg;
+  }
+
+  .boxed.orient-right div:first-child {
+    @apply md:ml-auto md:rounded-l-lg;
+  }
+}

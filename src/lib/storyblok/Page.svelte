@@ -1,9 +1,9 @@
 <script>
-  import Page from '$lib/components/Page.svelte'
+  import { StoryblokComponent } from '@storyblok/svelte'
 
   export let blok
-
-  const { sections } = blok
 </script>
 
-<Page {sections} />
+{#each blok.sections as section}
+  <StoryblokComponent blok={section} />
+{/each}

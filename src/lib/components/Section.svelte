@@ -3,41 +3,50 @@
 </script>
 
 <script>
-  import { StoryblokComponent } from '@storyblok/svelte'
-  import { makeClasses } from '$lib/index'
+  import { storyblokEditable, StoryblokComponent } from '@storyblok/svelte'
+  import { makeClasses, textAlignments } from '$lib/index'
 
-  export let anchorId
-  export let content
-  export let image
-  export let type
-  export let style
-  export let orientation
-  export let alignment
-  export let position
+  export let blok
 
-  const { filename, alt } = image
+  const defaultOuterStyles = 'bg-white'
+  const outerStyles = {
+    split: defaultOuterStyles,
+    circle: defaultOuterStyles,
+    portrait: defaultOuterStyles,
+    boxed: 'bg-gray-200 p-5 md:p-10 lg:p-16',
+  }
 
-  const id = anchorId ?? `section-${++idCounter}`
+  const defaultInnerStyles = 'px-7 py-11 md:px-12 md:py-16'
+  const innerStyles = {
+    split: defaultInnerStyles,
+    circle: defaultInnerStyles,
+    portrait: defaultInnerStyles,
+    boxed: 'bg-white rounded-lg p-7 md:px-10 md:py-12',
+  }
 
-  const classes = makeClasses([
-    `type-${type}`,
-    `style-${style}`,
-    `orientation-${orientation}`,
-    `alignment-${alignment}`,
-    `position-${position}`,
+  const {
+    anchorId,
+    content,
+    style,
+    textAlignment,
+  } = blok
+
+  const id = anchorId || `section-${++idCounter}`
+
+  const outerClasses = makeClasses([
+    outerStyles[style],
+    textAlignments[textAlignment],
+  ])
+
+  const innerClasses = makeClasses([
+    innerStyles[style],
   ])
 </script>
 
-<section {id} class={classes}>
-  <div class="content">
+<section use:storyblokEditable={blok} {id} class={outerClasses}>
+  <div class={innerClasses}>
     {#each content as blok}
       <StoryblokComponent {blok} />
     {/each}
   </div>
-
-  {#if filename}
-    <div class="image">
-      <img src={filename} alt={alt} />
-    </div>
-  {/if}
 </section>

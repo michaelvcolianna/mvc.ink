@@ -1,5 +1,5 @@
 import adapter from '@sveltejs/adapter-auto'
-import preprocess from 'svelte-preprocess'
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -12,7 +12,7 @@ const config = {
 			'@storyblok/svelte': './node_modules/@storyblok/svelte',
 		},
 	},
-	preprocess: preprocess(),
+	preprocess: vitePreprocess(),
 }
 
 export default config
