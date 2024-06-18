@@ -1,12 +1,16 @@
 <script>
   import { dev } from '$app/environment'
   import Footer from '$lib/components/Footer.svelte'
+  import SourceSans3Normal from '$lib/assets/fonts/SourceSans3-Normal.woff2'
+  import SourceSans3Italic from '$lib/assets/fonts/SourceSans3-Italic.woff2'
   import '../app.postcss'
 
   const url = `https://${dev ? 'localhost:5173' : 'mvc.ink'}`
 </script>
 
 <svelte:head>
+  <link rel="preload" href={SourceSans3Normal} as="font" type="font/woff2" crossorigin="anonymous" />
+  <link rel="preload" href={SourceSans3Italic} as="font" type="font/woff2" crossorigin="anonymous" />
   <link rel="canonical" href="https://mvc.ink" />
   <link rel="icon" href="{url}/favicon.ico" />
   <link rel="apple-touch-icon" sizes="57x57" href="{url}/apple-icon-57x57.png" />
@@ -41,7 +45,7 @@
   <link rel="sitemap" type="application/xml" href="{url}/sitemap.xml" />
 </svelte:head>
 
-<div class="bg-gray-200 grid gap-thin text-sm sm:text-base md:text-lg lg:text-xl font-light max-w-screen-2xl mx-auto 2xl:border-l 2xl:border-r">
+<div class="font-sans bg-gray-200 grid gap-thin text-sm sm:text-base md:text-lg lg:text-xl font-light max-w-screen-2xl mx-auto 2xl:border-l 2xl:border-r">
   <slot />
 
   <Footer />

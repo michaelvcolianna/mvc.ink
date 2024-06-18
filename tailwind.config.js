@@ -9,7 +9,7 @@ export default {
         '3': '3px',
       },
       fontFamily: {
-        'sans': ['"Source Sans Pro"', ...defaultTheme.fontFamily.sans],
+        'sans': ['"Source Sans"', ...defaultTheme.fontFamily.sans],
       },
       gap: {
         'thin': '1px',
