@@ -5,6 +5,7 @@
 <script>
   import { storyblokEditable, StoryblokComponent } from '@storyblok/svelte'
   import { makeClasses, orientations, textAlignments, imagePositions } from '$lib/index'
+  import Image from '$lib/components/Image.svelte'
 
   export let blok
 
@@ -40,13 +41,12 @@
     anchorId,
     content,
     image,
+    maxWidth,
     style,
     orientation,
     textAlignment,
     imagePosition,
   } = blok
-
-  const { filename, alt } = image
 
   const id = anchorId || `section-${++idCounter}`+.00
 
@@ -81,6 +81,6 @@
   </div>
 
   <div class={innerImageClasses}>
-    <img src={filename} alt={alt} class={imageClasses} />
+    <Image {image} {maxWidth} classes={imageClasses} />
   </div>
 </section>

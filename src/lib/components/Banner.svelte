@@ -4,6 +4,7 @@
 
 <script>
   import { storyblokEditable, StoryblokComponent } from '@storyblok/svelte'
+  import Image from '$lib/components/Image.svelte'
 
   export let blok
 
@@ -11,9 +12,8 @@
     anchorId,
     content,
     image,
+    maxWidth
   } = blok
-
-  const { filename, alt } = image
 
   const id = anchorId || `section-${++idCounter}`
 </script>
@@ -26,6 +26,6 @@
   </div>
 
   <div class="w-3/5 mx-auto lg:w-1/4 lg:mx-0">
-    <img src={filename} alt={alt} class="shadow-lg" />
+    <Image {image} {maxWidth} classes="shadow-lg" />
   </div>
 </section>
