@@ -1,4 +1,5 @@
 <script>
+  import ExternalLink from '$lib/components/ExternalLink.svelte'
   import Icon from '$lib/components/Icon.svelte'
   import Link from '$lib/components/Link.svelte'
 
@@ -29,18 +30,6 @@
       isExternal: true,
       label: 'GitHub',
     },
-    // {
-    //   type: 'facebook',
-    //   href: 'https://www.facebook.com/michaelcolianna',
-    //   isExternal: true,
-    //   label: 'Facebook',
-    // },
-    // {
-    //   type: 'twitter',
-    //   href: 'https://twitter.com/michaelcolianna',
-    //   isExternal: true,
-    //   label: 'Twitter',
-    // },
     {
       type: 'email',
       href: 'mailto:info@mvc.ink',
@@ -60,6 +49,14 @@
       {/each}
     </ul>
 
-    <p>&copy; 1997-{year} Michael V. Colianna. <a href="https://github.com/michaelvcolianna/mvc.ink" target="_blank" rel="noopener noreferrer">Source Code</a>.</p>
+    <p>&copy; 1997-{year} Michael V. Colianna. <ExternalLink href="https://github.com/michaelvcolianna/mvc.ink">Source Code</ExternalLink>.</p>
+
+    <hr />
+
+    <div class="grid gap-4">
+      <div>Cover artwork for <em>Fractured Children of Earth</em> by <ExternalLink href="https://www.artofashesamuels.com/">Ashe Samuels</ExternalLink>.</div>
+      <div>"Planets" painting by <ExternalLink href="http://jonas.lesser.se/">Jonas Lesser</ExternalLink>.</div>
+      <div>Artwork of soldier by <ExternalLink href="https://fluorescentwolf.tumblr.com/tagged/my+art/">FluorescentWolf</ExternalLink>.</div>
+    </div>
   </div>
 </footer>
