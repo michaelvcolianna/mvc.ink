@@ -42,6 +42,7 @@
   <meta name="twitter:image" content="{url}/mvcink-card.jpg" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="robots" content="noai, noimageai" />
   <link rel="sitemap" type="application/xml" href="{url}/sitemap.xml" />
 </svelte:head>
 
