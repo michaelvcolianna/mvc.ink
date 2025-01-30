@@ -7,20 +7,27 @@
 </script>
 
 <li>
-  {#if isNew}
-    <img alt="New." src={New} height="21" width="32" />
-  {/if}
+  <div>
+    {#if isNew}
+      <img alt="New." src={New} height="21" width="32" />
+    {/if}
 
-  <time datetime={isoDate}>{date}</time>
+    <span>
+      <time datetime={isoDate}>{date}</time>:
 
-  <a href={`/blog${href}`}>
-    {@render children()}
-  </a>
+      <a href={`/${href}`}>
+        {@render children()}
+      </a>
+    </span>
+  </div>
 </li>
 
 <style>
-  img {
+  li {
     clear: both;
+  }
+
+  div img {
     float: left;
     margin-right: calc(var(--spacing) * 0.5);
   }

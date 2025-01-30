@@ -1,56 +1,22 @@
 <script>
-  import AolSucks from '$lib/assets/aol-sucks.gif';
-  import ExternalLink from '$lib/components/ExternalLink.svelte';
-  import IeLogo from '$lib/assets/ie-logo.gif';
-  import Madeonamac from '$lib/assets/madeonamac.gif';
-  import Mirc from '$lib/assets/mirc.gif';
-  import MvcTitle from '$lib/assets/mvc-title.png';
+  import Badge from '$lib/components/Badge.svelte';
+  import BannerAd from '$lib/components/BannerAd.svelte';
+  import Counter from '$lib/components/Counter.svelte';
+  import Markdown from '$lib/components/Markdown.svelte';
   import NavLink from '$lib/components/NavLink.svelte';
-  import Neocities from '$lib/assets/neocities.png';
-  import Noframes from '$lib/assets/noframes.gif';
-  import Notepad from '$lib/assets/notepad.gif';
-  import NsLogo from '$lib/assets/ns-logo.gif';
-  import { onMount } from 'svelte';
-  import { page } from '$app/state';
-  import { PUBLIC_APP_MODE } from '$env/static/public';
-  import Quicktime from '$lib/assets/quicktime.gif';
-  import Realplayer from '$lib/assets/realplayer.gif';
-  import Winamp from '$lib/assets/winamp.gif';
   import '../app.css';
 
-  let { children } = $props();
+  /** @type {import('./$types').LayoutProps} */
+  let { data, children } = $props();
 
-  const links = [
-    { href: '/', label: 'Main page' },
-    { href: '/about', label: 'About me' },
-    { href: '/stories', label: 'My stories' },
-    { href: '/blog', label: 'ROMs central' },
-    { href: '/links', label: 'Cool links' }
-  ];
-
-  const building = PUBLIC_APP_MODE === 'prod';
-
-  let bannerAd;
-
-  const images = import.meta.glob('../../static/banners/*');
-  const bannerAds = Object.keys(images);
-
-  onMount(() => {
-    const bannerAdSrc = bannerAds[Math.floor(Math.random() * bannerAds.length)];
-
-    bannerAd.src = bannerAdSrc.replace('../../static', '');
-  });
+  // Retrieve the needed information for the layout & counter
+  // @see https://svelte.dev/docs/svelte/$derived
+  let layout = $derived(data.layout);
+  let views = $derived(data.views);
 </script>
 
 <svelte:head>
-  <meta
-    property="og:description"
-    content="The super cool old school website for author Michael V. Colianna."
-  />
-  <meta
-    property="og:image"
-    content="https://michaelcolianna.neocities.org/mvc-og.png"
-  />
+  <link rel="icon" href={layout.favicon.filename} />
   <meta name="robots" content="noai, noimageai" />
 </svelte:head>
 
@@ -58,10 +24,15 @@
 
 <div class="wrap">
   <header>
-    <img alt="Michael V. Colianna." src={MvcTitle} height="188" width="626" />
+    <img
+      alt={layout.header.alt}
+      src={layout.header.filename}
+      height="188"
+      width="626"
+    />
 
     <nav>
-      {#each links as link}
+      {#each layout.navigation as link}
         <NavLink {link} />
       {/each}
     </nav>
@@ -70,59 +41,24 @@
   <main id="content">
     {@render children()}
 
-    <div id="icons">
-      <img alt="Internet Explorer badge." src={IeLogo} height="31" width="88" />
-      <img alt="Netscape Navigator badge." src={NsLogo} height="31" width="88" />
-      <img alt="AOL sucks, get a real ISP badge." src={AolSucks} height="31" width="88" />
-      <img
-        alt="Campaign against frames badge."
-        src={Noframes}
-        height="31"
-        width="87"
-      />
-      <img alt="Made with Notepad badge." src={Notepad} height="31" width="82" />
-      <img alt="Realplayer badge." src={Realplayer} height="31" width="88" />
-      <img alt="Quicktime badge." src={Quicktime} height="31" width="88" />
-      <img alt="Made on a Mac badge." src={Madeonamac} height="31" width="88" />
-      <img alt="mIRC badge." src={Mirc} height="31" width="88" />
-      <img
-        alt="Hosted by Neocities badge."
-        src={Neocities}
-        height="31"
-        width="105"
-      />
+    <div id="badges" aria-label="Badges.">
+      {#each layout.badges as badge}
+        <Badge {badge} />
+      {/each}
     </div>
 
-    {#if building}
-      <div id="counter">
-        <ExternalLink href="https://www.free-website-hit-counter.com"
-          ><img
-            src="https://www.free-website-hit-counter.com/zc.php?d=6&id=3561&s=1"
-            border="0"
-            alt="Free Website Hit Counter."
-            id="counter-image"
-          /></ExternalLink
-        >
-
-        <small
-          ><ExternalLink href="https://www.free-website-hit-counter.com"
-            >Free website hit counter</ExternalLink
-          ></small
-        >
-      </div>
-    {/if}
+    <Counter {views} />
   </main>
 
   <footer>
     <div class="copyright">
-      &copy; 2017-{new Date().getFullYear()} - Michael V. Colianna -
-      <a href="mailto:info@mvc.ink">Contact</a>
+      <Markdown content={layout.footer} />
     </div>
   </footer>
 
-  <div id="fake-banner-ad">
+  <div id="jokes">
     <span>Fake banner ad:</span>
-    <img bind:this={bannerAd} alt="A random, fake banner ad." src />
+    <BannerAd banners={layout.bannerAds} />
   </div>
 </div>
 
@@ -162,11 +98,12 @@
     justify-content: space-evenly;
   }
 
-  #icons {
+  #badges {
     display: flex;
     flex-wrap: wrap;
     gap: calc(var(--spacing) * 0.5);
     margin-bottom: var(--spacing);
+    margin-top: calc(var(--spacing) * 2);
   }
 
   footer {
@@ -181,29 +118,15 @@
     padding: 0 var(--spacing);
   }
 
-  #counter {
-    margin-bottom: 24px;
-    margin-top: 24px;
-    text-align: center;
-  }
-
-  #counter-image {
-    margin: auto;
-  }
-
-  #fake-banner-ad {
+  #jokes {
     font-size: calc(var(--spacing) * 0.75);
     margin-bottom: var(--spacing);
     min-height: 75px;
     text-align: center;
   }
 
-  #fake-banner-ad span {
+  #jokes span {
     display: block;
     margin-bottom: calc(var(--spacing) * 0.5);
-  }
-
-  #fake-banner-ad img {
-    margin: auto;
   }
 </style>
