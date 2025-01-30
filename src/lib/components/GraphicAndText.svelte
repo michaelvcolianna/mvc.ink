@@ -5,7 +5,9 @@
   let { block } = $props();
 </script>
 
-<div class={`graphic-and-text align-${block.alignment} position-${block.positioning}`}>
+<div
+  class={`graphic-and-text align-${block.alignment} position-${block.positioning}`}
+>
   <Graphic block={block.graphic[0]} />
 
   <Paragraph block={block.paragraph[0]} />

@@ -9,9 +9,12 @@
   /** @type {import('./$types').PageProps}*/
   let { data } = $props();
 
+  // Retrieve the needed information for the layout & page
+  // @see https://svelte.dev/docs/svelte/$derived
   let layout = $derived(data.layout);
   let page = $derived(data.page);
 
+  // Map for Storyblok->Svelte component
   const components = {
     graphic: Graphic,
     graphicAndText: GraphicAndText,

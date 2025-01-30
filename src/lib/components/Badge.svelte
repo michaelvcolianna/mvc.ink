@@ -1,6 +1,7 @@
 <script>
   let { badge } = $props();
 
+  // Extract the image height and width from the URL
   const [width, height] = badge.filename.split('/')[5].split('x');
 </script>
 

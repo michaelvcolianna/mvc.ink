@@ -2,6 +2,8 @@
   import BlogLink from '$lib/components/BlogLink.svelte';
 
   let { block, blogs } = $props();
+
+  // @todo "Load more" functionality
 </script>
 
 <div class="blog-list">

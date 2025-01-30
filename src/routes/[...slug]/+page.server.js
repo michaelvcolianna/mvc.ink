@@ -4,59 +4,84 @@ import { existsSync, readFileSync } from 'fs';
 import { globSync } from 'glob';
 import StoryblokClient from 'storyblok-js-client';
 
+/**
+ * Sorts by date, descending.
+ *
+ * @param {string} a
+ * @param {string} b
+ * @returns number
+ */
 const byDate = (a, b) =>
   parseFloat(new Date(b.first_published_at).getTime()) -
   parseFloat(new Date(a.first_published_at).getTime());
 
+/**
+ * Reads a JSON file and parses it.
+ *
+ * @param {string} file
+ * @returns object
+ */
+const loadJson = (file) => JSON.parse(readFileSync(file, 'utf8'));
+
+/**
+ * Removes preceding and trailing slashes.
+ *
+ * @param {string} url
+ * @returns string
+ */
 const unSlash = (url) => url.replace(/^\/|\/$/g, '');
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params }) {
+  // Deconstruct the slug
   const { slug } = params;
 
+  // Variables needed up front
   let page = {};
+  let blogs;
 
   if (APP_MODE === 'dev') {
+    // Reach out to Storyblok for the page data
     const Storyblok = new StoryblokClient({
       accessToken: STORYBLOK_TOKEN,
       region: 'us'
     });
 
+    // Provides a fallback object if the requested page doesn't exist
     const response = await Storyblok.get(`cdn/stories/${slug || 'home'}`, {
       version: 'draft'
     }).catch((error) => ({ data: { story: undefined } }));
 
+    // Assign the page
     page = response.data.story;
 
+    // Retrieve the blog entries if needed
     if (slug === 'blog') {
-      const blogs = await Storyblok.getAll('cdn/stories', {
+      blogs = await Storyblok.getAll('cdn/stories', {
         excluding_slugs: 'blog/',
         starts_with: 'blog/',
         version: 'draft'
       });
-
-      page.blogs = blogs.sort(
-        (a, b) =>
-          parseFloat(new Date(b.first_published_at).getTime()) -
-          parseFloat(new Date(a.first_published_at).getTime())
-      );
     }
   } else {
+    // Full path to the file
     const file = `.data/${slug || 'index'}.json`;
 
     if (existsSync(file)) {
-      page = JSON.parse(readFileSync(file, 'utf8'));
+      // Get the page data from cache
+      page = loadJson(file);
 
+      // Retrieve the blog entries from cache if needed
       if (slug === 'blog') {
-        const blogs = globSync('.data/blog/*.json').map((file) =>
-          JSON.parse(readFileSync(file, 'utf8'))
-        );
-
-        page.blogs = blogs.sort(byDate);
+        blogs = globSync('.data/blog/*.json').map((file) => loadJson(file));
       }
     }
   }
 
+  // Patch sorted blog entries to the page data if needed
+  page.blogs = slug === 'blog' ? blogs.sort(byDate) : undefined;
+
+  // Don't allow viewing the layout page or directly viewing the main page
   if (!page || slug === '__layout' || slug === 'home') {
     error(404);
   }
@@ -69,10 +94,10 @@ export async function load({ params }) {
 /** @type {import('./$types').EntryGenerator} */
 export async function entries() {
   if (APP_MODE === 'prod') {
-    const stories = globSync('.data/**/*.json').map((file) =>
-      JSON.parse(readFileSync(file, 'utf8'))
-    );
+    // Get all cached files
+    const stories = globSync('.data/**/*.json').map((file) => loadJson(file));
 
+    // Filter out unwanted slugs and map accordingly
     return stories
       .filter((story) => story.slug !== 'home' && story.slug !== '__layout')
       .map((story) => ({ slug: unSlash(story.full_slug) }));

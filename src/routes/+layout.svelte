@@ -9,6 +9,8 @@
   /** @type {import('./$types').LayoutProps} */
   let { data, children } = $props();
 
+  // Retrieve the needed information for the layout & counter
+  // @see https://svelte.dev/docs/svelte/$derived
   let layout = $derived(data.layout);
   let views = $derived(data.views);
 </script>

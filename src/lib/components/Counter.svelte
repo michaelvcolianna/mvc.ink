@@ -1,6 +1,9 @@
 <script>
   let { views } = $props();
 
+  // Split the digits into an array for:
+  // - Setting the CSS variable
+  // - Using the CSS to calculate sprite background-position-x
   const digits = views.toString().split('').map(Number);
 </script>
 

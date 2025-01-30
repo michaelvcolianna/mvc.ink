@@ -4,12 +4,13 @@
 
   let { content } = $props();
 
+  // Create the parser
   const md = markdownit();
+
+  // Add the plugin for external links and turn off new tab/window
+  // @see https://www.w3.org/WAI/WCAG21/Techniques/general/G200
   md.use(markdownitExternalLink, {
-    hosts: [
-      'https://localhost:5173',
-      'https://mvc.ink'
-    ],
+    hosts: ['https://localhost:5173', 'https://mvc.ink'],
     rel: 'noopener noreferrer',
     target: '_top'
   });
