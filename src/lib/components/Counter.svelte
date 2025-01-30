@@ -7,8 +7,9 @@
   const digits = views.toString().split('').map(Number);
 </script>
 
-<div id="counter" aria-label={`${views} visits.`}>
-  <div id="digits">
+<div id="counter">
+  <span id="label">Visits: {views}.</span>
+  <div id="digits" aria-hidden="true">
     {#each digits as digit}
       <span class="digit" style={`--digit: ${digit}`}></span>
     {/each}
@@ -20,6 +21,18 @@
     display: flex;
     justify-content: center;
     margin-bottom: var(--spacing);
+  }
+
+  #label {
+    border-width: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
   }
 
   #digits {
