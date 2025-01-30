@@ -1,3 +1,3 @@
-# NEOCITIES
+# mvc.ink
 
-Took a very old version of my site from like 2000 and made this.
+I used to have a modern web site but got introduced to Neocities and decided to build this old school version.
