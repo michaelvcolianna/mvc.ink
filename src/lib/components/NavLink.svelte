@@ -3,16 +3,17 @@
 
   let { link } = $props();
 
-  const { href, label } = link;
+  const { name, full_slug } = link;
+
+  const href = `/${full_slug === 'home' ? '' : full_slug.replace(/^\/|\/$/g, '')}`;
 </script>
 
 <a {href} aria-current={page.url.pathname === href ? 'page' : undefined}
-  >{label}</a
+  >{name}</a
 >
 
 <style>
-
-a {
+  a {
     align-items: center;
     display: flex;
     height: calc(var(--spacing) * 3);

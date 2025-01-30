@@ -45,14 +45,76 @@ img {
   max-width: 100%;
 }
 
-.clearfix {
-  clear: both;
+.paragraph.align-center {
+  text-align: center;
 }
 
-.ender {
-  padding-top: calc(var(--spacing) * 2);
+.paragraph.align-right {
+  text-align: right;
 }
 
-code {
+.paragraph blockquote {
+  border-left: 2px solid var(--color-white);
+  margin: 0;
+  padding-left: calc(var(--spacing) * 2);
+}
+
+.paragraph li {
+  margin: var(--spacing) 0;
+}
+
+.paragraph code {
   color: var(--color-ghost);
+}
+
+.graphic {
+  display: flex;
+  justify-content: start;
+}
+
+.graphic.align-center {
+  justify-content: center;
+}
+
+.graphic.align-right {
+  justify-content: end;
+}
+
+.graphic.style-corners img {
+  border-radius: var(--spacing);
+}
+
+.graphic.style-round img {
+  border-radius: 100%;
+}
+
+.graphic-and-text {
+  align-items: center;
+  display: flex;
+  gap: calc(var(--spacing) * 0.5);
+  justify-content: start;
+}
+
+.graphic-and-text.align-center {
+  justify-content: center;
+}
+
+.graphic-and-text.align-right {
+  justify-content: end;
+}
+
+.graphic-and-text.position-right {
+  flex-flow: row-reverse;
+}
+
+.graphic-and-text.position-list {
+  margin: var(--spacing);
+}
+
+.graphic-and-text.position-list::before {
+  content: '\25cf';
+}
+
+.graphic-and-text .graphic {
+  flex-shrink: 0;
 }
