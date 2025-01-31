@@ -25,6 +25,7 @@
 <style>
   li {
     clear: both;
+    margin: var(--spacing) 0;
   }
 
   div img {
