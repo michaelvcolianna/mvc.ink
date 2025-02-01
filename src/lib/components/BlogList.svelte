@@ -23,7 +23,7 @@
     <a href="/feed.xml">
       <img
         alt={block.description}
-        src={block.rssIcon.filename}
+        src={`${block.rssIcon.filename}/m/`}
         height="15"
         width="80"
       />

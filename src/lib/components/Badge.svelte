@@ -5,7 +5,7 @@
   const [width, height] = badge.filename.split('/')[5].split('x');
 </script>
 
-<img alt={badge.alt} src={badge.filename} {height} {width} />
+<img alt={badge.alt} src={`${badge.filename}/m/`} {height} {width} />
 
 <style>
   img {

@@ -9,7 +9,7 @@
 
   // Make the href from the full slug, de-slashing
   const href =
-    full_slug === 'home' ? '' : `/${full_slug.replace(/^\/|\/$/g, '')}`;
+    full_slug === 'home' ? '/' : `/${full_slug.replace(/^\/|\/$/g, '')}`;
 </script>
 
 <a {href} aria-current={page.url.pathname === href ? 'page' : undefined}

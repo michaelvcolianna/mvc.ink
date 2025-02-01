@@ -20,7 +20,7 @@
 
     // Update the IMG element
     bannerAd.alt = banner.alt;
-    bannerAd.src = banner.filename;
+    bannerAd.src = `${banner.filename}/m/`;
     bannerAd.height = bannerHeight;
     bannerAd.width = bannerWidth;
   }

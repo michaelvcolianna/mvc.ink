@@ -26,7 +26,7 @@
   <header>
     <img
       alt={layout.header.alt}
-      src={layout.header.filename}
+      src={`${layout.header.filename}/m/`}
       height="188"
       width="626"
     />

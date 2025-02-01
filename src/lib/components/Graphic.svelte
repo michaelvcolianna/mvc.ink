@@ -6,7 +6,7 @@
   {#each Array.from({ length: block.repeat }) as _, i}
     <img
       alt={i === 0 ? block.description || '' : ''}
-      src={block.image.filename}
+      src={`${block.image.filename}/m/`}
       height={block.height}
       width={block.width}
     />
