@@ -30,6 +30,11 @@
   {/if}
 
   <meta
+    name="description"
+    content={page.content.description || layout.description}
+  />
+
+  <meta
     property="og:description"
     content={page.content.description || layout.description}
   />
