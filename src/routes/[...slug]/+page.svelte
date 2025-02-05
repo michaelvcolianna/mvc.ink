@@ -2,6 +2,7 @@
   import BackLink from '$lib/components/BackLink.svelte';
   import BlogDate from '$lib/components/BlogDate.svelte';
   import BlogList from '$lib/components/BlogList.svelte';
+  import CanonicalLink from '$lib/components/CanonicalLink.svelte';
   import Graphic from '$lib/components/Graphic.svelte';
   import GraphicAndText from '$lib/components/GraphicAndText.svelte';
   import Paragraph from '$lib/components/Paragraph.svelte';
@@ -28,6 +29,8 @@
   {:else}
     <title>{page.name} | Author Michael V. Colianna</title>
   {/if}
+
+  <CanonicalLink {page} />
 
   <meta
     name="description"
