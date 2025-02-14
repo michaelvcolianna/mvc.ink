@@ -48,7 +48,7 @@ export async function load({ params }) {
     });
 
     // Provides a fallback object if the requested page doesn't exist
-    const response = await Storyblok.get(`cdn/stories/${slug || 'home'}`, {
+    const response = await Storyblok.get(`cdn/stories/${slug}`, {
       version: 'draft'
     }).catch((error) => ({ data: { story: undefined } }));
 
@@ -81,8 +81,8 @@ export async function load({ params }) {
   // Patch sorted blog entries to the page data if needed
   page.blogs = slug === 'blog' ? blogs.sort(byDate) : undefined;
 
-  // Don't allow viewing the layout page or directly viewing the main page
-  if (!page || slug === '__layout' || slug === 'home') {
+  // Don't allow viewing the layout page
+  if (!page || slug === '__layout') {
     error(404);
   }
 
@@ -99,7 +99,7 @@ export async function entries() {
 
     // Filter out unwanted slugs and map accordingly
     return stories
-      .filter((story) => story.slug !== 'home' && story.slug !== '__layout')
+      .filter((story) => story.slug !== '__layout')
       .map((story) => ({ slug: unSlash(story.full_slug) }));
   }
 

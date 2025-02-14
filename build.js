@@ -48,7 +48,7 @@ stories.forEach((story) => {
   // - Full file path
   // - URL for feed/sitemap
   // - If this is a blog post
-  const dirs = story.full_slug.split('/').filter((x) => x && x !== 'home');
+  const dirs = story.full_slug.split('/').filter((x) => x);
   const path = `${DATA_DIR}/${dirs.length > 1 ? `${dirs[0]}/` : ''}`;
   const file = `${path}${dirs.at(-1) || 'index'}.json`;
   const url = `https://mvc.ink/${dirs.length > 1 ? `${dirs[0]}/` : ''}${dirs.at(-1)}`;

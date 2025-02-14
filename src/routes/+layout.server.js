@@ -30,3 +30,5 @@ export async function load({ fetch }) {
     layout: story.content.body[0]
   };
 }
+
+export const trailingSlash = 'never';
