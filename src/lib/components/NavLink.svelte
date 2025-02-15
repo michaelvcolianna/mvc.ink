@@ -11,8 +11,10 @@
   const href = `/${full_slug.replace(/^\/|\/$/g, '')}`;
 </script>
 
-<a {href} aria-current={page.url.pathname === href ? 'page' : undefined}
-  >{name}</a
+<a
+  {href}
+  target="_top"
+  aria-current={page.url.pathname === href ? 'page' : undefined}>{name}</a
 >
 
 <style>
