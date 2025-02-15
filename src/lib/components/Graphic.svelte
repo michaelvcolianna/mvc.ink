@@ -1,12 +1,14 @@
 <script>
+  import Asset from '$lib/components/Asset.svelte';
+
   let { block } = $props();
 </script>
 
 <div class={`graphic align-${block.alignment} style-${block.style}`}>
   {#each Array.from({ length: block.repeat }) as _, i}
-    <img
+    <Asset
       alt={i === 0 ? block.description || '' : ''}
-      src={`${block.image.filename}/m/`}
+      filename={block.image.filename}
       height={block.height}
       width={block.width}
     />

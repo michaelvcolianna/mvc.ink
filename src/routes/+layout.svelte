@@ -1,4 +1,5 @@
 <script>
+  import Asset from '$lib/components/Asset.svelte';
   import Badge from '$lib/components/Badge.svelte';
   import BannerAd from '$lib/components/BannerAd.svelte';
   import Counter from '$lib/components/Counter.svelte';
@@ -24,9 +25,9 @@
 
 <div class="wrap">
   <header>
-    <img
+    <Asset
       alt={layout.header.alt}
-      src={`${layout.header.filename}/m/`}
+      filename={layout.header.filename}
       height="188"
       width="626"
     />

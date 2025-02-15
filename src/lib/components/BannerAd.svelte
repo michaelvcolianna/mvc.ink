@@ -1,22 +1,38 @@
 <script>
+  import { onMount } from 'svelte';
+  import { onNavigate } from '$app/navigation';
+
   let { banners } = $props();
 
-  // Pick a random banner
-  const banner = banners[Math.floor(Math.random() * banners.length)];
+  let bannerAd;
 
-  // Extract the banner's height and width from the URL
-  const [bannerWidth, bannerHeight] = banner.filename
-    .split('/')[5]
-    .split('x');
+  /**
+   * Assigns a random banner ad.
+   */
+  function randomBannerAd() {
+    // Pick a random banner
+    const banner = banners[Math.floor(Math.random() * banners.length)];
 
-  // IMG element attributes
-  const alt = banner.alt;
-  const src = `${banner.filename}/m/`;
-  const height = bannerHeight;
-  const width = bannerWidth;
+    // Extract the banner's height and width from the URL
+    const [bannerWidth, bannerHeight] = banner.filename.split('/')[5].split('x');
+
+    // Update the IMG element
+    bannerAd.alt = banner.alt;
+    bannerAd.src = banner.filename;
+    bannerAd.height = bannerHeight;
+    bannerAd.width = bannerWidth;
+  }
+
+  // Run random ad when the component mounts
+  onMount(() => randomBannerAd());
+
+  // Update random ad when changing pages
+  onNavigate(randomBannerAd);
 </script>
 
-<img {alt} {src} {height} {width} />
+<div>
+  <img bind:this={bannerAd} alt src height width />
+</div>
 
 <style>
   img {

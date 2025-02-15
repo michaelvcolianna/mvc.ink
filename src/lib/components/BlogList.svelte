@@ -1,4 +1,5 @@
 <script>
+  import Asset from '$lib/components/Asset.svelte';
   import BlogLink from '$lib/components/BlogLink.svelte';
 
   let { block, blogs } = $props();
@@ -21,9 +22,9 @@
 
   <div id="rss">
     <a href="/feed.xml">
-      <img
+      <Asset
         alt={block.description}
-        src={`${block.rssIcon.filename}/m/`}
+        filename={block.rssIcon.filename}
         height="15"
         width="80"
       />
