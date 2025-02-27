@@ -1,4 +1,4 @@
-<a href="/blog">&laquo; Back to da Blog</a>
+<a href="/blog" target="_top">&laquo; Back to da Blog</a>
 
 <style>
   a {

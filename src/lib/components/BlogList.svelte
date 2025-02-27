@@ -21,7 +21,7 @@
   </ul>
 
   <div id="rss">
-    <a href="/feed.xml">
+    <a href="/feed.xml" target="_top">
       <Asset
         alt={block.description}
         filename={block.rssIcon.filename}

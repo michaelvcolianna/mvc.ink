@@ -5,7 +5,9 @@
   let { content } = $props();
 
   // Create the parser
-  const md = markdownit();
+  const md = markdownit({
+    html: true
+  });
 
   // Add the plugin for external links and turn off new tab/window
   // @see https://www.w3.org/WAI/WCAG21/Techniques/general/G200

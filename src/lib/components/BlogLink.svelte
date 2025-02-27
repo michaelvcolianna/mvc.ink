@@ -15,7 +15,7 @@
     <span>
       <time datetime={isoDate}>{date}</time>:
 
-      <a href={`/${href}`}>
+      <a href={`/${href}`} target="_top">
         {@render children()}
       </a>
     </span>
