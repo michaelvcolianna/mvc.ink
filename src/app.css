@@ -1,25 +1,32 @@
-@font-face {
-  font-display: swap;
-  font-family: 'Source Sans';
-  src: url('$lib/assets/fonts/SourceSans3-Normal.woff2') format('woff2 supports variations'),
-       url('$lib/assets/fonts/SourceSans3-Normal.woff2') format('woff2-variations');
-  unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F, U+2000-206F, U+20A0-20CF;
-}
+@import 'tailwindcss';
 
-@font-face {
-  font-display: swap;
-  font-family: 'Source Sans';
-  font-style: italic;
-  src: url('$lib/assets/fonts/SourceSans3-Italic.woff2') format('woff2 supports variations'),
-       url('$lib/assets/fonts/SourceSans3-Italic.woff2') format('woff2-variations');
-  unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F, U+2000-206F, U+20A0-20CF;
+@theme {
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 736px;
+  --breakpoint-lg: 980px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1680px;
+  --font-sans: 'Source Sans', sans-serif;
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 @layer base {
+  @font-face {
+    font-display: swap;
+    font-family: 'Source Sans';
+    src: url('$lib/assets/fonts/SourceSans3-Normal.woff2') format('woff2 supports variations'),
+        url('$lib/assets/fonts/SourceSans3-Normal.woff2') format('woff2-variations');
+    unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F, U+2000-206F, U+20A0-20CF;
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: 'Source Sans';
+    font-style: italic;
+    src: url('$lib/assets/fonts/SourceSans3-Italic.woff2') format('woff2 supports variations'),
+        url('$lib/assets/fonts/SourceSans3-Italic.woff2') format('woff2-variations');
+    unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F, U+2000-206F, U+20A0-20CF;
+  }
+
   h1,
   h2,
   h3,
@@ -68,7 +75,7 @@
   }
 
   .content blockquote {
-    @apply border-l-3 px-4 grid gap-6;
+    @apply border-l-[3px] px-4 grid gap-6;
   }
 
   .orient-left div:last-child {
@@ -77,6 +84,10 @@
 
   .orient-right div:first-child {
     @apply md:order-1;
+  }
+
+  .boxed {
+    @apply lg:min-h-[75vh] xl:min-h-[85vh];
   }
 
   .boxed > div:first-child {

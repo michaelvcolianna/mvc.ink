@@ -1,16 +1,21 @@
 <script>
-  export let image
-  export let maxWidth
-  export let classes
+  let { image, maxWidth, classes } = $props();
 
-  const { filename, alt } = image
+  // Pull the needed variables from the image
+  const { filename, alt } = image;
 
-  let [ width, height ] = filename.split('/')[5].split('x')
+  // Extract the width and height from the image URL
+  const [urlWidth, urlHeight] = filename.split('/')[5].split('x');
 
-  const divisor = width / maxWidth
+  // Determine image ratio
+  const divisor = urlWidth / maxWidth;
 
-  height = Math.round(height / divisor)
-  width = maxWidth
+  // Create the height and width
+  const height = Math.round(urlHeight / divisor);
+  const width = maxWidth;
+
+  // Make the optimized image URL
+  const src = `${filename}/m/${width}x0`;
 </script>
 
-<img src={`${filename}/m/${width}x0`} alt={alt} height={height} width={width} class={classes} />
+<img {src} {alt} {height} {width} class={classes} />

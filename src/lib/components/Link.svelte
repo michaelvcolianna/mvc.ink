@@ -1,9 +1,15 @@
 <script>
-  export let isExternal
-  export let href
+  let { isExternal, href, children } = $props();
 
-  const target = isExternal ? '_blank' : undefined
-  const rel = isExternal ? 'noopener noreferrer' : undefined
+  // Create the needed link attributes
+  const ariaDescribedBy = isExternal ? 'label-external' : undefined;
+  const rel = isExternal ? 'noopener noreferrer' : undefined;
 </script>
 
-<a href={href} target={target} rel={rel} class="flex items-center justify-center border border-gray-300 rounded-full h-10 w-10 lg:h-12 lg:w-12 2xl:h-14 2xl:w-14"><slot /></a>
+<a
+  {href}
+  {rel}
+  aria-describedby={ariaDescribedBy}
+  class="flex h-10 w-10 items-center justify-center rounded-full border border-gray-300 lg:h-12 lg:w-12 2xl:h-14 2xl:w-14"
+  >{@render children()}</a
+>

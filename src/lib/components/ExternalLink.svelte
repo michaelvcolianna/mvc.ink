@@ -1,5 +1,10 @@
 <script>
-  export let href;
+  let { href, children } = $props();
 </script>
 
-<a {href} target="_blank" rel="noopener noreferrer" class="font-bold underline"><slot /></a>
+<a
+  {href}
+  aria-describedby="label-external"
+  rel="noopener noreferrer"
+  class="font-bold underline">{@render children()}</a
+>

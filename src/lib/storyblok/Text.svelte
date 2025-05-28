@@ -1,11 +1,12 @@
 <script>
-  import { renderRichText } from '@storyblok/svelte'
+  import { richTextResolver } from '@storyblok/richtext';
 
-  export let blok
+  let { blok } = $props();
 
-  $: resolvedRichText = renderRichText(blok.content)
+  // Create the rich text renderer
+  const { render } = richTextResolver();
 </script>
 
 <div class="content grid gap-6">
-  {@html resolvedRichText}
+  {@html render(blok.content)}
 </div>

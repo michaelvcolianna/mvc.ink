@@ -1,20 +1,22 @@
 <script>
-  import { StoryblokComponent } from '@storyblok/svelte'
-  import { makeClasses } from '$lib/index'
+  import Component from '$lib/Component.svelte';
+  import { makeClasses } from '$lib/index';
 
-  export let blok
+  let { blok } = $props();
 
-  const { layout, buttons } = blok
+  // Pull the needed variables from the blok
+  const { layout, buttons } = blok;
 
+  // Styles for the unordered list
   const classes = makeClasses([
     'actions',
-    'flex justify-center lg:justify-start',
-    layout === 'horizontal' ? 'flex-row wrap' : 'flex-col',
-  ])
+    'flex gap-4 justify-center lg:justify-start',
+    layout === 'horizontal' ? 'flex-row wrap' : 'flex-col'
+  ]);
 </script>
 
 <ul class={classes}>
   {#each buttons as blok}
-    <StoryblokComponent {blok} />
+    <Component {blok} />
   {/each}
 </ul>
