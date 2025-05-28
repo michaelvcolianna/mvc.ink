@@ -18,6 +18,7 @@
 </script>
 
 <svelte:head>
+  <title>mvc.ink – Author Michael V. Colianna's web site</title>
   <link
     rel="preload"
     href={SourceSans3Normal}
