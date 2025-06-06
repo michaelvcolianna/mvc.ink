@@ -137,7 +137,7 @@
 </svelte:head>
 
 <div
-  class="mx-auto grid max-w-screen-2xl gap-[1px] bg-gray-200 font-sans text-sm font-light sm:text-base md:text-lg lg:text-xl 2xl:border-r 2xl:border-l"
+  class="mx-auto grid max-w-screen-2xl gap-[1px] border-gray-200 bg-gray-200 font-sans text-sm font-light sm:text-base md:text-lg lg:text-xl 2xl:border-r 2xl:border-l"
 >
   {#each data.page.sections as blok}
     <Component {blok} />
