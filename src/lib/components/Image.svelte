@@ -14,8 +14,14 @@
   const height = Math.round(urlHeight / divisor);
   const width = maxWidth;
 
+  // CDN mask
+  const cdnFilename = filename.replace(
+    '//a-us.storyblok.com',
+    '//assets.mvc.ink'
+  );
+
   // Make the optimized image URL
-  const src = `${filename}/m/${width}x0`;
+  const src = `${cdnFilename}/m/${width}x0`;
 </script>
 
 <img {src} {alt} {height} {width} class={classes} />
