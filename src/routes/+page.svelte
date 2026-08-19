@@ -157,8 +157,8 @@
 
       <p>
         &copy; 1997-{year} Michael V. Colianna. <ExternalLink
-          href="https://github.com/michaelvcolianna/mvc.ink" argonClick="source-code"
-          >Source Code</ExternalLink
+          href="https://github.com/michaelvcolianna/mvc.ink"
+          argonClick="source-code">Source Code</ExternalLink
         >.
       </p>
 
@@ -167,30 +167,40 @@
       <div class="grid gap-4">
         <div>
           Cover artwork for <em>Fractured Children of Earth</em> by <ExternalLink
-            href="https://www.artofashesamuels.com/" argonClick="ashe-samuels">Ashe Samuels</ExternalLink
+            href="https://www.artofashesamuels.com/"
+            argonClick="ashe-samuels">Ashe Samuels</ExternalLink
           >.
         </div>
 
         <div>
-          "Planets" painting by <ExternalLink href="http://jonas.lesser.se/" argonClick="jonas-lesser"
-            >Jonas Lesser</ExternalLink
+          "Planets" painting by <ExternalLink
+            href="http://jonas.lesser.se/"
+            argonClick="jonas-lesser">Jonas Lesser</ExternalLink
           >.
         </div>
 
         <div>
           Artwork of rebels by <ExternalLink
-            href="https://www.this-is-cool.co.uk/the-glorious-sci-fi-art-of-jaroslaw-marcinek/" argonClick="jaroslaw-marcinek"
-            >Jaroslaw Marcinek</ExternalLink
+            href="https://www.this-is-cool.co.uk/the-glorious-sci-fi-art-of-jaroslaw-marcinek/"
+            argonClick="jaroslaw-marcinek">Jaroslaw Marcinek</ExternalLink
           >.
         </div>
 
         <div>
           Artwork of soldier by <ExternalLink
-            href="https://fluorescentwolf.tumblr.com/tagged/my+art/" argonClick="fluorescentwolf"
-            >FluorescentWolf</ExternalLink
+            href="https://fluorescentwolf.tumblr.com/tagged/my+art/"
+            argonClick="fluorescentwolf">FluorescentWolf</ExternalLink
           >.
         </div>
       </div>
+
+      <hr />
+
+      <p>
+        <span class="font-bold">Terms of use:</span> You may not feed anything about me - this
+        website's content, any of my social media posts, my novel's hype text, or
+        the novel itself into any kind of LLM for any purpose. No exceptions.
+      </p>
     </div>
   </footer>
 </div>
