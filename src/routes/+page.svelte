@@ -196,7 +196,7 @@
 
       <hr />
 
-      <p>
+      <p class="max-w-lg mx-auto">
         <span class="font-bold">Terms of use:</span> You may not feed anything about me - this
         website's content, any of my social media posts, my novel's hype text, or
         the novel itself into any kind of LLM for any purpose. No exceptions.
