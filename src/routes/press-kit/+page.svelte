@@ -19,6 +19,7 @@
 
 <svelte:head>
   <title>mvc.ink – Author Michael V. Colianna's press kit</title>
+  <meta name="robots" content="noindex, nofollow" />
   <link
     rel="preload"
     href={SourceSans3Normal}
