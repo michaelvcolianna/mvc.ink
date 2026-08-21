@@ -18,7 +18,7 @@
 </script>
 
 <svelte:head>
-  <title>mvc.ink – Author Michael V. Colianna's press kit</title>
+  <title>Book club scam investigation results</title>
   <meta name="robots" content="noindex, nofollow" />
   <link
     rel="preload"
@@ -34,7 +34,7 @@
     type="font/woff2"
     crossorigin="anonymous"
   />
-  <link rel="canonical" href="https://mvc.ink/press-kit" />
+  <link rel="canonical" href="https://mvc.ink/book-club-investigation" />
   <link rel="icon" href="{url}/favicon.ico" />
   <link
     rel="apple-touch-icon"
@@ -111,22 +111,22 @@
   <meta name="theme-color" content="#ffffff" />
   <meta
     property="og:title"
-    content="mvc.ink - Author Michael V. Colianna's press kit"
+    content="Book club scam investigation results"
   />
   <meta
     name="twitter:title"
-    content="mvc.ink - Author Michael V. Colianna's press kit"
+    content="Book club scam investigation results"
   />
   <meta property="og:url" content="https://mvc.ink" />
   <meta name="twitter:url" content="https://mvc.ink" />
-  <meta name="description" content="Michael V. Colianna’s author press kit." />
+  <meta name="description" content="Book club scam investigation results" />
   <meta
     property="og:description"
-    content="Michael V. Colianna’s author press kit."
+    content="Book club scam investigation results"
   />
   <meta
     name="twitter:description"
-    content="Michael V. Colianna’s author press kit."
+    content="Book club scam investigation results"
   />
   <meta name="image" content="{url}/mvcink-card.jpg" />
   <meta property="og:image" content="{url}/mvcink-card.jpg" />
