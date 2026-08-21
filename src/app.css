@@ -66,6 +66,10 @@
     @apply font-normal underline;
   }
 
+  .content {
+    @apply wrap-anywhere;
+  }
+
   .content .major {
     @apply text-base sm:text-lg md:text-xl lg:text-2xl;
   }
