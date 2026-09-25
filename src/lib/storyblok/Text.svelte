@@ -11,9 +11,8 @@
         const { custom, href, target } = attrs;
         
         const targetAttr = target ? `target="${target}"` : '';
-        const argonAttr = custom['data-argon-click'] ? `data-argon-click="${custom['data-argon-click']}"` : '';
 
-        return `<a href="${href}"${targetAttr}${argonAttr}>${text}</a>`;
+        return `<a href="${href}"${targetAttr}>${text}</a>`;
       }
     }
   });

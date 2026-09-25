@@ -109,14 +109,8 @@
   <meta name="msapplication-TileColor" content="#ffffff" />
   <meta name="msapplication-TileImage" content="{url}/ms-icon-144x144.png" />
   <meta name="theme-color" content="#ffffff" />
-  <meta
-    property="og:title"
-    content="Book club scam investigation results"
-  />
-  <meta
-    name="twitter:title"
-    content="Book club scam investigation results"
-  />
+  <meta property="og:title" content="Book club scam investigation results" />
+  <meta name="twitter:title" content="Book club scam investigation results" />
   <meta property="og:url" content="https://mvc.ink" />
   <meta name="twitter:url" content="https://mvc.ink" />
   <meta name="description" content="Book club scam investigation results" />
@@ -151,7 +145,7 @@
       <ul class="flex flex-wrap justify-center gap-4 lg:gap-8">
         {#each data.settings.footerLinks as { kind, href, isExternal }}
           <li>
-            <Link {href} {isExternal} argonClick={kind}><Icon {kind} /></Link>
+            <Link {href} {isExternal}><Icon {kind} /></Link>
           </li>
         {/each}
       </ul>
@@ -159,7 +153,7 @@
       <p>
         &copy; 1997-{year} Michael V. Colianna. <ExternalLink
           href="https://github.com/michaelvcolianna/mvc.ink"
-          argonClick="source-code">Source Code</ExternalLink
+          >Source Code</ExternalLink
         >.
       </p>
 
@@ -168,29 +162,27 @@
       <div class="grid gap-4">
         <div>
           Cover artwork for <em>Fractured Children of Earth</em> by <ExternalLink
-            href="https://www.artofashesamuels.com/"
-            argonClick="ashe-samuels">Ashe Samuels</ExternalLink
+            href="https://www.artofashesamuels.com/">Ashe Samuels</ExternalLink
           >.
         </div>
 
         <div>
-          "Planets" painting by <ExternalLink
-            href="http://jonas.lesser.se/"
-            argonClick="jonas-lesser">Jonas Lesser</ExternalLink
+          "Planets" painting by <ExternalLink href="http://jonas.lesser.se/"
+            >Jonas Lesser</ExternalLink
           >.
         </div>
 
         <div>
           Artwork of rebels by <ExternalLink
             href="https://www.this-is-cool.co.uk/the-glorious-sci-fi-art-of-jaroslaw-marcinek/"
-            argonClick="jaroslaw-marcinek">Jaroslaw Marcinek</ExternalLink
+            >Jaroslaw Marcinek</ExternalLink
           >.
         </div>
 
         <div>
           Artwork of soldier by <ExternalLink
             href="https://fluorescentwolf.tumblr.com/tagged/my+art/"
-            argonClick="fluorescentwolf">FluorescentWolf</ExternalLink
+            >FluorescentWolf</ExternalLink
           >.
         </div>
       </div>
