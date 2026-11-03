@@ -204,12 +204,14 @@
 </div>
 
 <style>
-  :global(#body ul) {
+  :global(#body1 ul),
+  :global(#body2 ul) {
     list-style-type: disc;
     padding-left: 1.5em;
   }
 
-  :global(#body ul ul) {
+  :global(#body1 ul ul),
+  :global(#body2 ul ul) {
     list-style-type: circle;
   }
 </style>
