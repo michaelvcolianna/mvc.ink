@@ -18,7 +18,7 @@
 </script>
 
 <svelte:head>
-  <title>AO3 Scam Site</title>
+  <title>SocialDB Scam Site</title>
   <meta name="robots" content="noindex, nofollow" />
   <link
     rel="preload"
@@ -109,18 +109,18 @@
   <meta name="msapplication-TileColor" content="#ffffff" />
   <meta name="msapplication-TileImage" content="{url}/ms-icon-144x144.png" />
   <meta name="theme-color" content="#ffffff" />
-  <meta property="og:title" content="AO3 Scam Site" />
-  <meta name="twitter:title" content="AO3 Scam Site" />
+  <meta property="og:title" content="SocialDB Scam Site" />
+  <meta name="twitter:title" content="SocialDB Scam Site" />
   <meta property="og:url" content="https://mvc.ink" />
   <meta name="twitter:url" content="https://mvc.ink" />
-  <meta name="description" content="AO3 Scam Site" />
+  <meta name="description" content="SocialDB Scam Site" />
   <meta
     property="og:description"
-    content="AO3 Scam Site"
+    content="SocialDB Scam Site"
   />
   <meta
     name="twitter:description"
-    content="AO3 Scam Site"
+    content="SocialDB Scam Site"
   />
   <meta name="image" content="{url}/mvcink-card.jpg" />
   <meta property="og:image" content="{url}/mvcink-card.jpg" />
