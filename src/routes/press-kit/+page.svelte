@@ -151,7 +151,7 @@
       <ul class="flex flex-wrap justify-center gap-4 lg:gap-8">
         {#each data.settings.footerLinks as { kind, href, isExternal }}
           <li>
-            <Link {href} {isExternal}><Icon {kind} /></Link>
+            <Link {href} {isExternal} umamiEvent={kind}><Icon {kind} /></Link>
           </li>
         {/each}
       </ul>
@@ -159,7 +159,7 @@
       <p>
         &copy; 1997-{year} Michael V. Colianna. <ExternalLink
           href="https://github.com/michaelvcolianna/mvc.ink"
-          >Source Code</ExternalLink
+          umamiEvent="source-code">Source Code</ExternalLink
         >.
       </p>
 
@@ -168,27 +168,29 @@
       <div class="grid gap-4">
         <div>
           Cover artwork for <em>Fractured Children of Earth</em> by <ExternalLink
-            href="https://www.artofashesamuels.com/">Ashe Samuels</ExternalLink
+            href="https://www.artofashesamuels.com/"
+            umamiEvent="ashe-samuels">Ashe Samuels</ExternalLink
           >.
         </div>
 
         <div>
-          "Planets" painting by <ExternalLink href="http://jonas.lesser.se/"
-            >Jonas Lesser</ExternalLink
+          "Planets" painting by <ExternalLink
+            href="http://jonas.lesser.se/"
+            umamiEvent="jonas-lesser">Jonas Lesser</ExternalLink
           >.
         </div>
 
         <div>
           Artwork of rebels by <ExternalLink
             href="https://www.this-is-cool.co.uk/the-glorious-sci-fi-art-of-jaroslaw-marcinek/"
-            >Jaroslaw Marcinek</ExternalLink
+            umamiEvent="jaroslaw-marcinek">Jaroslaw Marcinek</ExternalLink
           >.
         </div>
 
         <div>
           Artwork of soldier by <ExternalLink
             href="https://fluorescentwolf.tumblr.com/tagged/my+art/"
-            >FluorescentWolf</ExternalLink
+            umamiEvent="fluorescentwolf">FluorescentWolf</ExternalLink
           >.
         </div>
       </div>

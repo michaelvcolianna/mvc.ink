@@ -4,13 +4,16 @@
   let { blok } = $props();
 
   // Pull the needed variables from the blok
-  const { label, style, size, link } = blok;
+  const { label, style, size, link, argonClick } = blok;
 
   // Create the needed link attributes
   const { anchor } = link;
   const href = anchor ? `#${anchor}` : link.cached_url;
   const ariaDescribedBy = anchor ? undefined : 'label-external';
   const rel = anchor ? undefined : 'noopener noreferrer';
+
+  // Umami event name (Storyblok field is still named argonClick)
+  const dataUmamiEvent = argonClick || undefined;
 
   // Styles for the link
   const styles = {
@@ -30,5 +33,11 @@
 </script>
 
 <li class="text-sm">
-  <a {href} {rel} aria-describedby={ariaDescribedBy} class={classes}>{label}</a>
+  <a
+    {href}
+    {rel}
+    data-umami-event={dataUmamiEvent}
+    aria-describedby={ariaDescribedBy}
+    class={classes}>{label}</a
+  >
 </li>
